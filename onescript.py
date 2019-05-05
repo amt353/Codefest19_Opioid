@@ -108,18 +108,16 @@ def live_transcribe():
             transcript += result.alternatives[0].transcript + " "
         return transcript
 
-    
     print("YOLO")
     transcript = ""
     transcript = transcribe_gcs('gs://transcribe_ems/' + thefile, transcript)
     print(transcript)
-    f=open("test.txt", "a+")
-    f.write(transcript + "test")
-    f.close
-
+    f = open('filename.txt', 'a')
+    f.write(transcript + " ")
+    f.close()
     # upload files to gcs here: 
     
 ###################################################
 
-for i in range(1):
+while True:
     live_transcribe()
