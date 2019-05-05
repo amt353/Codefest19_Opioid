@@ -25,7 +25,7 @@ We're all first time hackers and first time using API and image-related deep lea
 Lots!
 
 ## What's next for DeepPhilaOD?
-Although the skeleton of DeePphilaOD has taken shape, the workflow has yet to be automated.  Future works include filtering the audio transcripts with an embedding network, such as the pre-trained word2vec, to determine whether the indicence is opioid overdose-realated, whether each new dialouge is a new incident, and so on.  Another augmention could be developed for scraping additional attributes from other EMS data that would ideally improve the model's reliability and prediction.
+Although the skeleton of DeePhilaOD has taken shape, the workflow has yet to be automated.  Future works include filtering the audio transcripts with an embedding network, such as the pre-trained word2vec, to determine whether the indicence is opioid overdose-realated, whether each new dialouge is a new incident, and so on.  Another augmention could be developed for scraping additional attributes from other EMS data that would ideally improve the model's reliability and prediction.
 
 [1] https://www.healthinsurance.org/pennsylvania-medicaid/ <br>
 [2] https://www.drugabuse.gov/publications/drugs-brains-behavior-science-addiction/drug-misuse-addiction
