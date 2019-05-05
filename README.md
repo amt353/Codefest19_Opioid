@@ -1,4 +1,4 @@
-# Codefest19_Opioid
+# DeepPhilaOD
 Predicting Opioid epidemic progression from EMS radio audio
 
 ## Inspiration
