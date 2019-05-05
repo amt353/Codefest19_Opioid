@@ -1,8 +1,6 @@
 # DeepPhilaOD - 9B
 Predicting Opioid epidemic progression from EMS radio audio
 
-![alt text][Codefest19_OpioidWorkflow.png]
-
 ## Inspiration
 
 Philadelphia is one of many locations in the US that is affected by economic inequity. By July 2018, nearly 3 million low-income Pensylvania residents were enrolled in Medicaid/ CHIP[1]. Community poverty has been shown to be a risk factor of drug addiction to which the opioid epidemic is linked [2]. A lot of publicly available data on opioid abuse is not updated on a live basis - usually, it’s quarterly at best. We were hoping that by scanning unconventional channels of information, we could help to identify areas that currently are, and may be hotspot areas for opioid abuse in the future, which helps professionals work proactively in combating the environmental risk factors that contribute to opioid abuse. 
