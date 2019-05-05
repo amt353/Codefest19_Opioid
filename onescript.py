@@ -5,12 +5,17 @@ from pydub import AudioSegment
 from google.cloud import storage
 
 def live_transcribe():
+    
+    #tracks the start time for the radio recording sequence
+    starttime = time.time()
+
+
     def record(current_file, r, t_end, stream_file_name):
         curr_time = str(datetime.datetime.now())
         curr_time = curr_time.replace(".", "")
         curr_time = curr_time.replace(" ","")
         curr_time = curr_time.replace(":","_")
-        stream_file_name = ('stream' + curr_time + '.mp3')
+        stream_file_name = ('stream' + '.mp3')
         with open(stream_file_name, 'wb') as f:
             try:
                 for block in r.iter_content(1024):
@@ -40,7 +45,7 @@ def live_transcribe():
     t_end = time.time() + 1
     thefile = record(current_file, r, t_end, stream_file_name)
 
-    t_end = time.time() + 30
+    t_end = time.time() + 59
     thefile = record(current_file, r, t_end, stream_file_name)
     
     # Uncomment the line below to switch between two files called stream1.mp3 and stream2.mp3
@@ -49,8 +54,10 @@ def live_transcribe():
     # Comment the line below to switch between two files called stream1.mp3 and stream2.mp3
     current_file += 1
     print(thefile)
+    endtime = time.time()
+    print(endtime - starttime)
     ###################################################
-    
+    startimet = time.time()
     print("converting file")
     song = AudioSegment.from_mp3(thefile)
     thefile = thefile.replace(".mp3", "")
@@ -116,7 +123,8 @@ def live_transcribe():
     f.write(transcript + " ")
     f.close()
     # upload files to gcs here: 
-    
+    endtime = time.time()
+    print(endtime-starttime)
 ###################################################
 
 while True:
