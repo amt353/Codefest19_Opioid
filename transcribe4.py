@@ -10,7 +10,8 @@ def transcribe_gcs(gcs_uri, transcript):
     config = types.RecognitionConfig(
         encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
         sample_rate_hertz=22050,
-        language_code='en-US')
+        language_code='en-US',
+        model="video")
 
     operation = client.long_running_recognize(config, audio)
 
@@ -29,7 +30,7 @@ def transcribe_gcs(gcs_uri, transcript):
 
 print("YOLO")
 transcript = ""
-transcript = transcribe_gcs('gs://transcribe_ems/goodaudioaudacity.flac', transcript)
+transcript = transcribe_gcs('gs://transcribe_ems/stream5.flac', transcript)
 print(transcript)
 
 # upload files to gcs here: 
