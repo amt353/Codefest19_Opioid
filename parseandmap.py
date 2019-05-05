@@ -1,6 +1,7 @@
 import googlemaps
 import json
 import webbrowser
+import time
 from datetime import datetime
 
 streets = [line.rstrip('\n') for line in open('streets.txt')]
@@ -46,6 +47,15 @@ def parseStreets(transcript):
                 streetnames.append(streets[i])
     return counts, streetnames
 
+def getFinalData(zipdata, data):
+    i = -1
+    final_data = []
+    for num in data:
+        i += 1
+        if num > 0:
+            final_data.append(zipdata[i])
+    return final_data
+
 def getMapZips(zips):
     gmaps = googlemaps.Client(key='AIzaSyAuhI_akYRWtJFWXmGmJDSRgzAQB_T7VZ8')
     url = 'https://maps.googleapis.com/maps/api/staticmap?center=Philadelphia,+PA&zoom=11&size=1920x1080&maptype=terrain'
@@ -63,10 +73,13 @@ def getMapZips(zips):
 
         geocode_result = str(geocode_result)
         geocode_result = geocode_result.replace("\'", "\"")
-        wjdata = json.loads(str(geocode_result))
-
-        lat = wjdata[0]['geometry']['location']['lat']
-        lng = wjdata[0]['geometry']['location']['lng']
+        try:
+            wjdata = json.loads(str(geocode_result))
+        
+            lat = wjdata[0]['geometry']['location']['lat']
+            lng = wjdata[0]['geometry']['location']['lng']
+        except:
+            return
 
         url = url + '&markers=color:red%7C' + str(lat) + ',' + str(lng)
     
@@ -103,29 +116,30 @@ def getMapStreets(streetname):
             f.write('\n')
             f.write('\n')
             f.close()
-
+        else:
+            break
         geocode_result = str(geocode_result)
         geocode_result = geocode_result.replace("\'", "\"")
-        wjdata = json.loads(str(geocode_result))
-
-        lat = wjdata[0]['geometry']['location']['lat']
-        lng = wjdata[0]['geometry']['location']['lng']
+        if geocode_result == None:
+            break
+        try:
+            wjdata = json.loads(str(geocode_result))
+        
+            lat = wjdata[0]['geometry']['location']['lat']
+            lng = wjdata[0]['geometry']['location']['lng']
+        except:
+            break
 
         url = url + '&markers=color:red%7C' + str(lat) + ',' + str(lng)
     
     url = url + '&key=AIzaSyAuhI_akYRWtJFWXmGmJDSRgzAQB_T7VZ8'
     webbrowser.open(url)
 
-
-
-# Sample Code
-
-transcript = 'There is a man passed out on the corner of 5th and Market zipcode 19104 nearby Drexel University Copy that got a man drugged out here in the 19102 brought in a woman from 19152 bout an hour ago too'
-#counts = parseZips(transcript)
-#zips = getZips(counts)
-#zips = [19104, 19102, 19142, 19128, 19118]
-#getMapZips(zips)
-#transcript = 'A man on 34th and Market is in pursuit'
-counts, roadnames = parseStreets(transcript)
-
-getMapStreets(roadnames)
+while True:
+    transcribed = open('filename.txt', 'r').read()
+    numofzips = parseZips(transcribed)
+    nameofzips = getZips(numofzips)
+    numofstreets, nameofstreets = parseStreets(transcribed)
+    #getMapZips(nameofzips)
+    getMapStreets(nameofstreets)
+    time.sleep(300)
