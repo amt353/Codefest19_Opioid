@@ -29,7 +29,6 @@ from keras import applications
 import matplotlib.pyplot as plt
 import seaborn as sns
 import math
-get_ipython().run_line_magic('matplotlib', 'inline')
 from tqdm import tqdm
 from PIL import Image
 from keras.applications.mobilenet import preprocess_input
@@ -97,40 +96,34 @@ zips = [19142, 19128, 19118, 19140, 19148, 19102, 19152, 19154, 19145,
 
 
 
-# Prepare folders for zip codes: catch generated toy data
-for z in zips:
-    os.mkdir('data/'+str(z))
-    
-
-
-
-
-# Get ready to generate toy data
-im = plt.imread('philaZip.png')
-
-
-
-
-# Functions for generating toy data
-def rand_hot( ):
-    '''Input: none; Output: one x coordinate for zip code'''
-    return random.randint(150,350)
-
-def x2y_adjust( xs ):
-    '''Input: list of x; Output: list of ys'''
-    return [math.ceil(x*(1+random.uniform(-0.1,0.15))) for x in xs]
-
-
-
-
-# Generate toy data
-
-#blue: bx = [210]; by= [150]
-#red: rx=[320, 280], ry=[300, 330]
 
 if not_ipynb:
+
 	pass
+
 else:
+
+	# Prepare folders for zip codes: catch generated toy data
+	for z in zips:
+		os.mkdir('data/'+str(z))
+
+	# Get ready to generate toy data
+	im = plt.imread('philaZip.png')
+
+	# Functions for generating toy data
+	def rand_hot( ):
+		'''Input: none; Output: one x coordinate for zip code'''
+		return random.randint(150,350)
+
+	def x2y_adjust( xs ):
+		'''Input: list of x; Output: list of ys'''
+		return [math.ceil(x*(1+random.uniform(-0.1,0.15))) for x in xs]
+
+	# Generate toy data
+
+	#blue: bx = [210]; by= [150]
+	#red: rx=[320, 280], ry=[300, 330]
+
 	for z in zips:
 		for i in range(191):
 			implot = plt.imshow(im)
@@ -171,7 +164,7 @@ train_generator=train_datagen.flow_from_directory('.',
 
 # Retrain model with new data
 deepPhilaOD.fit_generator(generator=train_generator,
-                        steps_per_epoch=150,
+                        steps_per_epoch=10,# was 150, changed to 10 for .py file to not take forever
                         epochs=5)
 
 
