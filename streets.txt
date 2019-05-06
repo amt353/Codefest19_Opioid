@@ -353,7 +353,6 @@ Buttonwood Square
 Buxmont
 Byberry
 Byrne
-C
 Cabel
 Cabell
 Cabot
@@ -993,7 +992,6 @@ Eveline
 Everett
 Executive
 Exeter
-F
 Factory
 Fairdale
 Fairfield
@@ -1200,7 +1198,6 @@ Gurley
 Gust
 Guyer
 Gypsy
-H
 Haddington
 Hadfield
 Haggerman
@@ -1320,7 +1317,6 @@ Humming Bird
 Hunter
 Hurley
 Huron
-I
 Ibis
 Idell
 Imogene
@@ -1343,7 +1339,6 @@ Irving
 Island
 Ivins
 Ivy Hill
-J
 Jackson
 Jacob
 James
@@ -1375,7 +1370,6 @@ Josephine
 Joyce
 Judson
 June
-K
 Kallaste
 Kalos
 Kane
@@ -1587,7 +1581,6 @@ Lynford
 Lynnebrook
 Lynnewood
 Lyons
-M
 Macalester
 Macon
 Madison Square
@@ -1647,7 +1640,7 @@ Martin
 Martindale
 Martins Mill
 Marvine
-Marwood E
+Marwood
 Mascher
 Masland
 Master
@@ -1800,7 +1793,6 @@ Myrtle
 48th
 49th
 4th
-4th Rear
 50th
 51st
 52nd
@@ -2005,7 +1997,6 @@ Nodens
 Nolan
 Norcom
 Norcross
-Norfolk ern Railway
 Norfolk
 Norman
 Normandy
@@ -2618,8 +2609,6 @@ Tustin
 Twist
 Tyrone
 Tyson
-U.s. 13
-U.s. Route 30
 Ulmer
 Umbria
 Unity
@@ -2730,14 +2719,7 @@ Wesleyan
 Wessex
 Allegheny Avenue
 Cheltenham Avenue
-End
 Montgomery Avenue
-bourne
-bury
-ford
-hampton
-minster
-mont
 Wexford
 Weymouth
 Wharton
@@ -2805,9 +2787,7 @@ Woodenbridge
 Woodfern
 Woodford
 Woodhaven
-Woodland Av & Chester Av
 Woodland
-Woodland Walk
 Woodward
 Woolston
 Wooster
